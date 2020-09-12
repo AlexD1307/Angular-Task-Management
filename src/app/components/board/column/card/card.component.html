@@ -1,0 +1,55 @@
+<div class="card" *ngIf="card">
+  <mat-icon class="close" mat-dialog-close>clear</mat-icon>
+  <app-editable-text (update)="updateCardName()" class="title">
+    <ng-template viewMode>{{cardName}}</ng-template>
+    <ng-template editMode>
+      <input class="input-title"
+             type="text"
+             focusable
+             [(ngModel)]="cardName"
+      >
+    </ng-template>
+  </app-editable-text>
+  <div class="content">
+    <div class="main-content">
+      <h3 class="content-title">Description</h3>
+      <p *ngIf="!description && !editingDescription"
+         (click)="toggleEditingDeescription()"
+         class="description-add"
+      >Add decription</p>
+      <p class="text" *ngIf="description && !editingDescription"
+         (click)="toggleEditingDeescription()"
+      >{{description}}</p>
+      <mat-form-field *ngIf="editingDescription" class="description-field">
+        <textarea
+            class="textarea"
+            (blur)="updateDescription()"
+            (keyup.enter)="updateDescription()"
+            matTextareaAutosize="true"
+            matInput
+            focusable
+            [(ngModel)]="description"
+        >{{description}}</textarea>
+      </mat-form-field>
+      <h3 class="content-title">Comments</h3>
+      <mat-form-field class="comment-field">
+        <mat-label>Leave a comment</mat-label>
+        <textarea [(ngModel)]="addCommentValue"
+            class="textarea comment-textarea"
+            matInput
+            matTextareaAutosize="true"
+            placeholder="Good job"></textarea>
+        <button [disabled]="!addCommentValue"
+                (click)="addComment()"
+                class="comment-save"
+                mat-raised-button
+                color="primary">Save</button>
+      </mat-form-field>
+      <div *ngFor="let comment of card.comments.reverse()">
+        <p class="text">{{comment.text}}</p>
+      </div>
+    </div>
+    <div class="features">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div>
+  <mat-form-field class="field title-field">
+    <mat-label>Board name*</mat-label>
+    <input
+        matInput
+        [formControl]="boardNameController"
+        placeholder="My new board"
+    >
+    <mat-error *ngIf="boardNameController.hasError('required')">
+      Board name must exist
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="field">
+    <mat-label>Favorite food</mat-label>
+    <mat-select [(ngModel)]="bgColor">
+      <mat-option *ngFor="let color of bgColors" [value]="color">
+        {{color.value | slice:3}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="dialog-buttons">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button
+        (click)="createBoard()"
+        mat-dialog-close
+        mat-flat-button
+        [disabled]="boardNameController.invalid"
+        color="primary"
+    >
+      Create
+    </button>
+  </div>
+</div>

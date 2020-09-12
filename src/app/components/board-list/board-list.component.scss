@@ -1,0 +1,44 @@
+.container {
+  margin-top: 50px;
+}
+
+.board {
+  position: relative;
+  list-style-type: none;
+  margin: 10px 50px 10px 0;
+}
+
+.board-link {
+  text-decoration: none;
+  height: 80px;
+  width: 180px;
+  text-align: left;
+  color: #fff;
+  &:hover:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.1);
+  }
+}
+
+.board-link-create {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(9,30,66,.04);
+  border-radius: 4px;
+  cursor: pointer;
+  color: #172b4d;
+  &:hover {
+    background: rgba(9,30,66,.08);
+  }
+}
+
+.boards_list {
+  display: flex;
+  flex-wrap: wrap;
+}

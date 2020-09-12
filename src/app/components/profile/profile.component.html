@@ -1,0 +1,68 @@
+<div *ngIf="userProfile" class="container">
+  <h2 class="title">Profile</h2>
+  <mat-divider></mat-divider>
+  <div class="content">
+    <div class="profile">
+      <div [formGroup]="form" class="form">
+        <mat-form-field class="form-field">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" placeholder="Mr Salomon">
+          <mat-error *ngIf="form.controls.username.hasError('required')">
+            Username is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Date of birth</mat-label>
+          <input matInput formControlName="birth" [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+          <mat-error *ngIf="form.controls.birth.invalid">
+            Please, choose correct date
+          </mat-error>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Country</mat-label>
+          <mat-select formControlName="country">
+            <mat-option *ngFor="let country of countries | async" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Telephone</mat-label>
+          <input type="tel"
+                 formControlName="telephone"
+                 matInput
+                 placeholder="555-555-1234">
+          <mat-error *ngIf="form.controls.telephone.invalid">
+            Should contain only numbers
+          </mat-error>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Description</mat-label>
+          <textarea formControlName="description" matInput placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="avatar">
+      <div class="add-avatar-text" *ngIf="!avatarPreview">Add avatar</div>
+      <div class="img-preview-container" >
+        <img class="img-avatar"
+             *ngIf="avatarPreview"
+             [src]="avatarPreview"
+             alt="avatar">
+      </div>
+      <input type="file"
+             class="input-file"
+             accept="image/*"
+             #inputFile
+             (change)="uploadAvatar($event)"
+      >
+      <button mat-button (click)="inputFile.click()">
+        {{avatarPreview ? 'Change image' : 'Choose image'}}
+      </button>
+    </div>
+  </div>
+  <button class="btn-submit" (click)="saveChanges()" mat-flat-button color="primary">Save changes</button>
+</div>

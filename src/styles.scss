@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 130px;
+}
+
+.form-field.mat-form-field {
+  width: 270px;
+  margin-bottom: 12px;
+}
+
+.mat-tab-labels .mat-tab-label {
+  min-width: 50%;
+}
+
+.mat-select-value, .mat-select-value-text {
+  color: inherit;
+}
+
+.bg-linear-blue {
+  background: linear-gradient(90deg, rgba(0, 100, 191, 0.77) 0%, rgb(0, 212, 255) 100%);
+}
+
+.bg-grey {
+  background: rgb(131, 140, 145);
+}
+
+.bg-brown {
+ background: rgb(210, 144, 52);
+}
+
+.bg-green {
+  background: rgb(75, 191, 107);
+}

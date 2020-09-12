@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="header">
+    <a routerLink="/" class="link">
+      <mat-icon>assignment</mat-icon>
+    </a>
+    <div class="link-list" *ngIf="isLogged">
+      <a routerLink="profile" class="link">
+        <mat-icon *ngIf="!avatar">perm_identity</mat-icon>
+        <img class="avatar" *ngIf="avatar" [src]="avatar" alt="avatar">
+      </a>
+      <a routerLink="" class="link">
+        <mat-icon>dashboard</mat-icon>
+      </a>
+      <a (click)="auth.logout()" class="link">
+        <mat-icon>login</mat-icon>
+      </a>
+    </div>
+    <div *ngIf="!isLogged">
+      <a routerLink="auth/register" class="link">
+        Register
+      </a>
+      <a routerLink="auth/login" class="link">
+        Login
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

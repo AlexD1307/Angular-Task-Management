@@ -1,0 +1,17 @@
+<div class="container">
+  <h2 class="title">Board list</h2>
+  <ul class="boards_list">
+    <li class="board" *ngFor="let board of boards$ | async">
+      <a class="board-link"
+         mat-raised-button
+         [class]="board.bgColor.value"
+         [routerLink]="['board', board.boardId]"
+      >
+        {{board.title}}
+      </a>
+    </li>
+    <li class="board">
+      <a class="board-link board-link-create" (click)="openDialog()">Create new board</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,91 @@
+.card {
+  position: relative;
+  width: 720px;
+}
+
+.features {
+  flex-grow: 1;
+  padding-left: 20px;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  opacity: 0.6;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.content {
+  display: flex;
+}
+
+.main-content {
+  width: 70%;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 500;
+  width: 250px;
+}
+
+.input-title {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+  width: 100%;
+}
+
+.description-add {
+  background: rgb(240, 240, 240);
+  display: inline-block;
+  padding: 5px;
+}
+
+.content-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.text {
+  word-break: break-word;
+}
+
+.textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+mat-form-field.mat-form-field {
+  width: 100%;
+}
+
+.mat-select-value, .mat-select-value-text {
+  color: inherit !important;
+}
+
+.description {
+  width: 100%;
+}
+
+.comment-field {
+  position: relative;
+}
+
+.comment-textarea {
+  padding-right: 70px;
+  min-height: 35px;
+}
+
+.comment-save {
+  position: absolute;
+  right: 0;
+}

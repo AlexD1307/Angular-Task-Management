@@ -1,0 +1,31 @@
+<div class="column-header">
+  <app-editable-text (update)="updateColumnName()" class="column-title-text">
+    <ng-template viewMode>{{column.columnName}}</ng-template>
+    <ng-template editMode>
+      <input class="column-field title-field" type="text" focusable [formControl]="columnNameControll">
+    </ng-template>
+  </app-editable-text>
+  <mat-icon class="card-delete" (click)="dropColumn()">clear</mat-icon>
+</div>
+<div cdkDropList
+     class="card-list"
+     [cdkDropListData]="column.cards"
+     (cdkDropListDropped)="dragCard($event)"
+>
+  <div cdkDrag
+       class="card"
+       *ngFor="let card of column.cards | sort"
+       (click)="showCard(card.id)"
+       [style.color]="card.color"
+  >
+    {{card.cardName}}
+  </div>
+  <div cdkDrag cdkDragDisabled class="add-card">
+    <app-editable-text (update)="addCard()" class="add-card-text">
+      <ng-template viewMode>Add card</ng-template>
+      <ng-template editMode>
+        <input class="column-field add-card-field" type="text" focusable [(ngModel)]="addCardField">
+      </ng-template>
+    </app-editable-text>
+  </div>
+</div>

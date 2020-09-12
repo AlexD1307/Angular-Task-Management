@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: content-box;
+}
+
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+}
+
+.link-list {
+  display: flex;
+  height: 100%;
+  width: 200px;
+  justify-content: space-between;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  padding: 16px;
+  width: 56px;
+  cursor: pointer;
+}
+
+mat-toolbar-row.mat-toolbar-row {
+  box-sizing: border-box;
+}

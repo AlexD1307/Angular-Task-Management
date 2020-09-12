@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <h2 class="title">{{boardName}}</h2>
+  <div
+      class="board-container"
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="dragColumn($event)"
+  >
+    <div cdkDropListGroup class="board">
+      <app-column
+          class="column"
+          (dropColumnId)="dropColumn($event)"
+          *ngFor="let column of columns | sort"
+          [id]="column.id"
+          [column]="column"
+          cdkDrag
+      >
+      </app-column>
+      <div class="add-column">
+        <h4 *ngIf="!addingColumn" (click)="toggleAddingColumn()">Add list</h4>
+        <input
+            *ngIf="addingColumn"
+            [(ngModel)]="addingColumnController"
+            type="text"
+            (blur)="addColumn()"
+            (keyup.enter)="addColumn()"
+            focusable
+        >
+      </div>
+    </div>
+  </div>
+</div>

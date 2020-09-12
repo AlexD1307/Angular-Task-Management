@@ -1,0 +1,34 @@
+<form class="form" [formGroup]="form">
+  <mat-form-field class="form-field">
+    <mat-label>Email</mat-label>
+    <input class="input" matInput formControlName="email" placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="form.controls.email.invalid">
+      {{formError(form.controls.email)}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Username</mat-label>
+    <input class="input" matInput formControlName="username" placeholder="Mr Salomon">
+    <mat-error *ngIf="form.controls.email.invalid">
+      {{formError(form.controls.username)}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Enter your password</mat-label>
+    <input class="input" matInput formControlName="password" type="password">
+    <mat-error *ngIf="form.controls.password.invalid">
+      {{formError(form.controls.password)}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Repeat your password</mat-label>
+    <input class="input" matInput formControlName="confirmPassword" type="password">
+    <mat-error *ngIf="form.controls.confirmPassword.invalid">
+      {{formError(form.controls.confirmPassword)}}
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button (click)="submit()" color="primary">Register</button>
+  <mat-error *ngIf="registerErrorMessage">
+    {{registerErrorMessage}}
+  </mat-error>
+</form>
